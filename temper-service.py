@@ -47,5 +47,11 @@ def metrics():
     result = json.dumps(t.read(), indent=2)
     return result
 
+@app.route('/data')
+def data():
+    # get internal temperature", internal humidity"
+    USBRead = Temper()
+    t.usb_read = USBRead.read()
+    return result
 if __name__ == '__main__':
     app.run(host=host, port=port, debug=debug)
